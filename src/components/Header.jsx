@@ -1,6 +1,16 @@
 import { Link } from "react-router-dom"
 
-const Header = () => {
+const Header = (props) => {
+
+    //props
+    const { numOfAnsweredQuestions, totalNumOfQuestions } = props
+
+    let barWidth = (800 / totalNumOfQuestions) * numOfAnsweredQuestions
+
+    var progresStyle = {
+        width: String(barWidth) + "px"
+    }
+
     return (
         <div className="header-container">
             <div className="header-left">
@@ -11,11 +21,11 @@ const Header = () => {
             </div>
             <div className="header-center">
                 <div className="progress-bar-container">
-                    <div className="progress-bar"></div>
+                    <div style={progresStyle} className="progress-bar"></div>
                 </div>
             </div>
             <div className="header-right">
-                <h1>3/10</h1>
+                <h1>{numOfAnsweredQuestions}/{totalNumOfQuestions}</h1>
             </div>
             
         </div>
