@@ -1,4 +1,6 @@
-const StartMenu = () => {
+const StartMenu = (props) => {
+
+    const { ClickNumOfQuestions } = props
     return (
         <div className="start-menu-container">
             <div className="start-menu-text">
@@ -9,10 +11,10 @@ const StartMenu = () => {
             <div className="start-menu-options">
                 <div className="start-options-left">
                     <div className="option-float-left">
-                        <input type="button" value="10" />
+                        <input type="button" value="10" onClick={ClickNumOfQuestions}/>
                     </div>
                     <div className="option-float-right">
-                        <input type="button" value="20" />
+                        <input type="button" value="20" onClick={ClickNumOfQuestions}/>
                     </div>
                     
                     
@@ -20,15 +22,15 @@ const StartMenu = () => {
 
                 <div className="start-options-center">
                     <img src="/chinese_flag.png" alt="" />
-                    <input type="button" value="50" />
+                    <input type="button" value="50" onClick={ClickNumOfQuestions}/>
                 </div>
 
                 <div className="start-options-right">
                     <div className="option-float-right">
-                        <input type="button" value="100" />
+                        <input type="button" value="100" onClick={ClickNumOfQuestions}/>
                     </div>
                     <div className="option-float-left">
-                        <input type="button" value="80" />
+                        <input type="button" value="80" onClick={ClickNumOfQuestions}/>
                     </div>
                     
                 </div>

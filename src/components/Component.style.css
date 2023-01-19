@@ -145,9 +145,10 @@
 
 
 
-/* Content.jsx */
+/* QuestionPage.jsx */
 
 .main-content-container {
+    position: relative;
     width: 100%;
     height: 70%;
     background-color: white;
@@ -200,6 +201,16 @@ input[type='button'] {
     padding: 10px;
     border-radius: 15px;
     cursor: pointer;
+}
+
+ .game-stats-hidden-by-default {
+    position: absolute;
+    bottom: 50px;
+    left: 50px;
+}
+
+.game-stats-hidden-by-default p {
+
 }
 
 

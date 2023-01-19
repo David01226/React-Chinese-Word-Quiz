@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 const Header = (props) => {
 
     //props
-    const { numOfAnsweredQuestions, totalNumOfQuestions } = props
+    const { numOfAnsweredQuestions, totalNumOfQuestions, RestartQuizVariables } = props
 
     let barWidth = (800 / totalNumOfQuestions) * numOfAnsweredQuestions
 
@@ -15,7 +15,7 @@ const Header = (props) => {
         <div className="header-container">
             <div className="header-left">
                 <Link to='/'>
-                    <img src="/chinese_flag.png" alt="" />
+                    <img src="/chinese_flag.png" alt="" onClick={RestartQuizVariables}/>
                 </Link>
                 
             </div>

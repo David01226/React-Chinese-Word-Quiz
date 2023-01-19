@@ -1,10 +1,14 @@
 import { Link } from "react-router-dom"
 
-const Footer = () => {
+const Footer = (props) => {
+
+    const { RestartQuizVariables } = props
     return (
         <div className="footer-container">
             <div className="footer-left">
-                <input type="button" value="QUIT" />
+                <Link to='/'>
+                    <input type="button" value="QUIT" onClick={RestartQuizVariables}/>
+                </Link>
             </div>
             <div className="footer-center">
                 <h3>ATTEMPTS: </h3>

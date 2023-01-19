@@ -10,22 +10,41 @@ import { questions } from './Questions'
 function App() {
 
   // state variables
-  const [userAnswer, setUserAnswer] = useState('');
-  const [questionIndex, setQuestionIndex] = useState(10);
-  const [currentQuestion, setCurrentQuestion] = useState(Object.keys(questions)[questionIndex].toUpperCase());
-  const [correct, setCorrect] = useState(0);
-  const [incorrect, setIncorrect] = useState(0);
-  const [attempts, setAttempts] = useState(0);
-  const [numOfAnsweredQuestions, setNumOfAnsweredQuestions] = useState(1);
+    const [userAnswer, setUserAnswer] = useState('');
+    const [questionIndex, setQuestionIndex] = useState(Math.floor(Math.random() * 101));
+    let currentQuestion = Object.keys(questions)[questionIndex].toUpperCase();
+    const [correct, setCorrect] = useState(0);
+    const [incorrect, setIncorrect] = useState(0);
+    const [attempts, setAttempts] = useState(0);
+    const [numOfAnsweredQuestions, setNumOfAnsweredQuestions] = useState(1);
+    const [totalNumOfQuestions, setTotalNumOfQuestions] = useState(10)
+    const allowedAttempts = 3
 
-  let totalNumOfQuestions = 10
-  const allowedAttempts = 3
+
+    // Resets all variables after game has finished or if exited
+    const RestartQuizVariables = () => {
+        setUserAnswer('');
+        setQuestionIndex(Math.floor(Math.random() * 101))
+        setCorrect(0);
+        setIncorrect(0);
+        setAttempts(0);
+        setNumOfAnsweredQuestions(1);
+        setTotalNumOfQuestions(10);
+    }
+
+
+  // specifies how many questions to answer
+  const ClickNumOfQuestions = (e) => {
+    const stringTotalNumOfQuestions = e.target.value
+    setTotalNumOfQuestions(+stringTotalNumOfQuestions)
+  }
 
 
   // generates next random question
   const NextQuestion = () => {
       setQuestionIndex(Math.floor(Math.random() * 101))
       // setQuestionIndex(10)
+
   }
   
 
@@ -38,8 +57,7 @@ function App() {
 
   // function handler for checking user answer, adding up score and monitoring number of attempts
   const CheckClickHnd = () => {
-      const correctAnswer = Object.values(questions)[10]
-
+      const correctAnswer = Object.values(questions)[questionIndex]
 
 
       if (numOfAnsweredQuestions < totalNumOfQuestions) {
@@ -50,19 +68,22 @@ function App() {
               setCorrect(correct + 1) // Add 1 to number of correct
               setAttempts(0) // Reset attempts back to 0 before next question
               NextQuestion() // Next Question
-              
+              setUserAnswer('')
           } 
 
           // if incorrect and not empty
           else if (userAnswer !== correctAnswer && userAnswer !== ''){
               if (attempts < allowedAttempts) {
                   setAttempts(attempts + 1) // Add one to the number of attempts if attempts is less than 3
+                  
                                      
               } else if (attempts === allowedAttempts) {
                   setIncorrect(incorrect + 1) // Add one to incorrect after using all 3 attempts
+                  NextQuestion() // Next Questions
                   setAttempts(0) // reset the attempts back to 0 for next question
                   setNumOfAnsweredQuestions(numOfAnsweredQuestions + 1) // Add 1 to number of questions answered
-                  NextQuestion() // Next Questions
+                  setUserAnswer('')
+                  
               }
           } 
       
@@ -106,11 +127,12 @@ function App() {
             <Header 
             numOfAnsweredQuestions={numOfAnsweredQuestions}
             totalNumOfQuestions={totalNumOfQuestions}
+            RestartQuizVariables={RestartQuizVariables}
             />
 
             <Switch>
               <Route exact path='/'>
-                  <StartMenu />
+                  <StartMenu ClickNumOfQuestions={ClickNumOfQuestions}/>
               </Route>
               <Route path='/quiz'>
                   <QuestionPage 
@@ -129,7 +151,7 @@ function App() {
               </Route>
             </Switch>
             
-            <Footer />
+            <Footer RestartQuizVariables={RestartQuizVariables}/>
         </div>
     </Router>
     
