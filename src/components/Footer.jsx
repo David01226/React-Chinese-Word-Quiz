@@ -2,12 +2,12 @@ import { Link } from "react-router-dom"
 
 const Footer = (props) => {
 
-    const { RestartQuizVariables } = props
+    const { RestartQuizVariables, StartClickHnd } = props
     return (
         <div className="footer-container">
             <div className="footer-left">
                 <Link to='/'>
-                    <input type="button" value="QUIT" onClick={RestartQuizVariables}/>
+                    <input className="quitBtn" type="button" value="QUIT" onClick={RestartQuizVariables}/>
                 </Link>
             </div>
             <div className="footer-center">
@@ -17,8 +17,8 @@ const Footer = (props) => {
                 </div>
             </div>
             <div className="footer-right">
-                <Link to='/quiz'>
-                    <input type="button" value="START" />
+                <Link to='/quiz' style={{ textDecoration: 'none' }}>
+                    <input className="startBtn" type="button" value="START" onClick={StartClickHnd}/>
                 </Link>
                 
             </div>

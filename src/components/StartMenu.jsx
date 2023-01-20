@@ -11,10 +11,10 @@ const StartMenu = (props) => {
             <div className="start-menu-options">
                 <div className="start-options-left">
                     <div className="option-float-left">
-                        <input type="button" value="10" onClick={ClickNumOfQuestions}/>
+                        <input className="startOptions" type="button" value="10" onClick={ClickNumOfQuestions}/>
                     </div>
                     <div className="option-float-right">
-                        <input type="button" value="20" onClick={ClickNumOfQuestions}/>
+                        <input className="startOptions" type="button" value="20" onClick={ClickNumOfQuestions}/>
                     </div>
                     
                     
@@ -22,15 +22,15 @@ const StartMenu = (props) => {
 
                 <div className="start-options-center">
                     <img src="/chinese_flag.png" alt="" />
-                    <input type="button" value="50" onClick={ClickNumOfQuestions}/>
+                    <input className="startOptions" type="button" value="50" onClick={ClickNumOfQuestions}/>
                 </div>
 
                 <div className="start-options-right">
                     <div className="option-float-right">
-                        <input type="button" value="100" onClick={ClickNumOfQuestions}/>
+                        <input className="startOptions" type="button" value="100" onClick={ClickNumOfQuestions}/>
                     </div>
                     <div className="option-float-left">
-                        <input type="button" value="80" onClick={ClickNumOfQuestions}/>
+                        <input className="startOptions" type="button" value="80" onClick={ClickNumOfQuestions}/>
                     </div>
                     
                 </div>

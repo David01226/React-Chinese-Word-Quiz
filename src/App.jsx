@@ -30,21 +30,54 @@ function App() {
         setAttempts(0);
         setNumOfAnsweredQuestions(1);
         setTotalNumOfQuestions(10);
+
+
+        let buttons = document.querySelectorAll('.startOptions')
+        for (let i = 0, max = buttons.length; i < max; i++) {      // reset all buttons to original color before changing the selected to red
+            buttons[i].style.backgroundColor = "#E6E6E6";
+        }
+
+        let attempts = document.getElementsByClassName('footer-center');
+        for (let i = 0, max = attempts.length; i < max; i++) {      
+            attempts[i].style.display = "none";
+        }
     }
 
 
   // specifies how many questions to answer
   const ClickNumOfQuestions = (e) => {
-    const stringTotalNumOfQuestions = e.target.value
-    setTotalNumOfQuestions(+stringTotalNumOfQuestions)
+        const stringTotalNumOfQuestions = e.target.value
+        setTotalNumOfQuestions(+stringTotalNumOfQuestions)  // Set total number of questions
+
+        
+        let buttons = document.querySelectorAll('.startOptions')
+        for (let i = 0, max = buttons.length; i < max; i++) {      // reset all buttons to original color before changing the selected to red
+            buttons[i].style.backgroundColor = "#E6E6E6";
+        }
+        let selectedButton = e.target
+        selectedButton.style.backgroundColor = "#EE0F0F";
+
+
+        let startButton = document.getElementsByClassName('startBtn');
+        for (let i = 0, max = startButton.length; i < max; i++) {      
+            startButton[i].style.display = "block";
+        }
+        
   }
+
+  const StartClickHnd = () => {
+    let attempts = document.getElementsByClassName('footer-center');
+    for (let i = 0, max = attempts.length; i < max; i++) {      
+        attempts[i].style.display = "flex";
+    }
+    
+  }
+
 
 
   // generates next random question
   const NextQuestion = () => {
       setQuestionIndex(Math.floor(Math.random() * 101))
-      // setQuestionIndex(10)
-
   }
   
 
@@ -151,7 +184,10 @@ function App() {
               </Route>
             </Switch>
             
-            <Footer RestartQuizVariables={RestartQuizVariables}/>
+            <Footer 
+            RestartQuizVariables={RestartQuizVariables}
+            StartClickHnd={StartClickHnd}
+            />
         </div>
     </Router>
     
