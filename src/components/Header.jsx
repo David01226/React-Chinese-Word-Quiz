@@ -9,6 +9,7 @@ const Header = (props) => {
 
     var progresStyle = {
         width: String(barWidth) + "px"
+        
     }
 
     return (

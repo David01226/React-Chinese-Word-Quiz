@@ -23,7 +23,7 @@
 }
 
 .header-center {
-
+    display:  none;
 }
 
 .progress-bar-container {
@@ -41,11 +41,12 @@
     height: 100%;
     background-color: #EE0F0F;
     border-radius: 15px;
+    transition: width 2s ease-out;
 
 }
 
 .header-right {
-
+    display:  none;
 }
 
 .header-right h1 {
@@ -182,8 +183,19 @@
     color: #EE0F0F;
 }
 
+.noAnswer {
+    visibility: hidden;
+    font-size: 30px;
+    color: #EE0F0F;
+    margin-top: 50px;
+}
+
+.correctAnswer {
+    visibility: hidden;
+}
+
 .user-input-container {
-    margin-top: 100px;
+    margin-top: 25px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -191,19 +203,25 @@
 }
 
 input[type='text'] {
-    width: 250px;
-    height: 30px;
+    width: 370px;
+    height: 50px;
     border-radius: 15px;
     margin-bottom: 30px;
     padding: 5px 8px;
-
-    
+    font-size: 28px;
+    text-align: center;
 }
 
 input[type='submit'] {
     padding: 10px;
     border-radius: 15px;
     cursor: pointer;
+    width: 215px;
+    height: 60px;
+    color: black;
+    font-size: 22px;
+    text-decoration: none;
+    border: 1px solid black;
 }
 
 input[type='button'] {
@@ -251,6 +269,7 @@ input[type='button'] {
 
 .footer-center h3 {
     margin-right: 15px;
+    font-size: 28px;
 }
 
 .footer-center img {
@@ -263,15 +282,34 @@ input[type='button'] {
 }
 
 .startBtn {
-    display: none;
     width: 215px;
     height: 60px;
-    background-color: #EE0F0F;
-    color: white;
+    background-color: #E6E6E6;
+    color: black;
     font-size: 22px;
     font-weight: bold;
     text-decoration: none;
     border: 1px solid black;
+    opacity: 0.4;
+    transition: background-color 0.8s;
+    transition: opacity 0.8s;
+}
+
+.skipBtn {
+    display: none;
+    width: 215px;
+    height: 60px;
+    background-color: #E6E6E6;
+    color: black;
+    font-size: 22px;
+    font-weight: bold;
+    text-decoration: none;
+    border: 1px solid black;
+    transition: background-color 0.15s;
+}
+
+.skipBtn:hover {
+    background-color: #EE0F0F;
 }
 
 .quitBtn {
@@ -280,7 +318,10 @@ input[type='button'] {
     color: black;
     font-size: 22px;
     text-decoration: none;
+    opacity: 0.4;
     border: 1px solid black;
 }
 
-
+.attemptImg {
+    margin-right: 5px;
+}
