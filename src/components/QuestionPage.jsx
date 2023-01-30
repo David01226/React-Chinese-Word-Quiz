@@ -1,23 +1,22 @@
 import './Component.style.css'
 
-
 const QuestionPage = (props) => {
+
 
     // Destructured props
     const {
         userAnswer, 
-        questionIndex,
         correct,
         incorrect,
         attempts,
         numOfAnsweredQuestions,
         totalNumOfQuestions,
-        allowedAttempts,
         currentQuestion,
         AnswerHnd,
         CheckClickHnd,
         correctAnswer,
     } = props
+
 
     // prevents default submit action
     const onSubmitForm = (e) => {
@@ -25,24 +24,34 @@ const QuestionPage = (props) => {
     };
 
 
-
     // Main output
     return (
+
         <div className="main-content-container">
+            
             <div className='question-container'>
                 <h3 className='question'>What is the Chinese for <span>{currentQuestion}</span> ?</h3>
 
-                <h1 className='noAnswer'>Enter answer</h1>
-                <h1 className='correctAnswer'>Correct Answer: {correctAnswer}</h1>
-                
+                <div className='messages'>
+                    <h1 className='noAnswer'>Enter answer</h1>
+                    <h1 className='correctAnswer'>Correct Answer: {correctAnswer}</h1>
+                </div>
+
                 <form onSubmit={onSubmitForm} className='user-input-container'>
                     <input type="text" name="" id="" onChange={AnswerHnd} value={userAnswer} />
-                    <input id='checkBtn' type="submit" value="CHECK" onClick={CheckClickHnd} />
+                    <button id='checkBtn' type="submit" onClick={CheckClickHnd}>CHECK</button>
                 </form>
-                
+            </div>
+
+            <div className="game-stats">
+                <h1>QUIZ RESULTS</h1>
+                <p className='totalResult'>Total Questions: {totalNumOfQuestions}</p>
+                <p className='correctResult'>Correct: {correct}</p>
+                <p className='incorrectResult'>Incorrect: {incorrect}</p>
             </div>
 
 
+            {/* This is for de-bugging purposes only */}
             <div className="game-stats-hidden-by-default">
                 <p>Question Number: {numOfAnsweredQuestions} of {totalNumOfQuestions}</p>
                 <p>Correct: {correct}</p>
@@ -51,7 +60,9 @@ const QuestionPage = (props) => {
             </div>
             
         </div>
+        
     )
+
 }
 
 export default QuestionPage

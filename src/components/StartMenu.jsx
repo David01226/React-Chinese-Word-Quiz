@@ -1,7 +1,9 @@
 const StartMenu = (props) => {
 
-    const { ClickNumOfQuestions } = props
+    const { ClickNumOfQuestions } = props // destructuring of props
+
     return (
+
         <div className="start-menu-container">
             <div className="start-menu-text">
                 <h1>Welcome to <span>THE CHINESE QUIZ</span></h1>
@@ -36,7 +38,9 @@ const StartMenu = (props) => {
                 </div>
             </div>
         </div>
+
     )
+    
 }
 
 export default StartMenu
