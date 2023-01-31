@@ -65,6 +65,7 @@ function App() {
                         startButton[i].style.display = "block";
                         startButton[i].style.opacity = "0.4";
                         startButton[i].style.cursor = "default";
+                        startButton[i].style.boxShadow = "unset";
                     }
 
                     let skipButton = document.getElementById('skip')      // reset skip button back to Active class but make it invisible
@@ -79,6 +80,7 @@ function App() {
                     for (let i = 0, max = quitButton.length; i < max; i++) {      
                         quitButton[i].style.opacity = "0.4";
                         quitButton[i].style.cursor = "default";
+                        quitButton[i].style.boxShadow = "unset";
                     } 
 
                     let starMenu = document.getElementsByClassName('start-menu-container');   // reveals the start menu again after restarting
@@ -112,6 +114,9 @@ function App() {
                         noAnswer[i].style.display = "none";
                     }
 
+                    let checkBtn = document.getElementById("checkBtn")  // change "NEXT" button back to "CHECK" button
+                    checkBtn.innerHTML = "CHECK"
+
             } else return  
 
     }
@@ -137,6 +142,7 @@ function App() {
                 startButton[i].style.backgroundColor = "#EE0F0F";
                 startButton[i].style.opacity = "1";
                 startButton[i].style.cursor = "pointer";
+                startButton[i].style.boxShadow = "5px 5px 10px lightgrey";  
             }
             
     }
@@ -194,6 +200,7 @@ function App() {
                 for (let i = 0, max = quitButton.length; i < max; i++) {      
                     quitButton[i].style.opacity = "1";
                     quitButton[i].style.cursor = "pointer";
+                    quitButton[i].style.boxShadow = "5px 5px 10px lightgrey";
                 }
      
         } else return  // the alternative renders the start button inactive if the user doesn't select an option from the start menu
