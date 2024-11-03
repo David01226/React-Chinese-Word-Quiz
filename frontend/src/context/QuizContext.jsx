@@ -12,7 +12,7 @@ const QuizContextProvider = (props) => {
 
   const fetchWords = async () => {
     try {
-        const response = await fetch('http://localhost:4000/api/words');
+        const response = await fetch(import.meta.env.VITE_APP_API_URL);
         if (response.ok) {
             const data = await response.json();
             setWords(data[0].words); // Set words in state

@@ -24,7 +24,7 @@ app.use((req, res, next) => {
 })
 
 // indicate where routes are coming from when landing on url endpoint
-app.use('/api/words', wordRoutes)
+app.use('/', wordRoutes)
 
 // connect to database
 mongoose.connect(process.env.MONGO_URI)
