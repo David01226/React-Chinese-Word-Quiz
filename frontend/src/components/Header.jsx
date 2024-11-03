@@ -2,10 +2,10 @@ const Header = (props) => {
 
     const { numOfAnsweredQuestions, totalNumOfQuestions, RestartQuizVariables } = props  // destructuring of props
 
-    let barWidth = (800 / totalNumOfQuestions) * numOfAnsweredQuestions  // calculating progress bar width
+    let barWidth = (100 / totalNumOfQuestions) * numOfAnsweredQuestions  // calculating progress bar width
                                                                         
-    var progresStyle = {
-        width: String(barWidth) + "px"   // converts calculation above into a string to be used for inline CSS
+    var progressStyle = {
+        width: String(barWidth) + "%"   // converts calculation above into a string to be used for inline CSS
     }
 
     return (
@@ -18,12 +18,12 @@ const Header = (props) => {
 
             <div className="header-center">
                 <div className="progress-bar-container">
-                    <div style={progresStyle} className="progress-bar"></div>
+                    <div style={progressStyle} className="progress-bar"></div>
                 </div>
             </div>
 
             <div className="header-right">
-                <h1>{numOfAnsweredQuestions}/{totalNumOfQuestions}</h1>
+                <h2>{numOfAnsweredQuestions}/{totalNumOfQuestions}</h2>
             </div>
             
         </div>

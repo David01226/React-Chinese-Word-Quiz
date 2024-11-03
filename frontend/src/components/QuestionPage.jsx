@@ -33,18 +33,18 @@ const QuestionPage = (props) => {
                 <h3 className='question'>What is the Chinese for <span>{currentQuestion}</span> ?</h3>
 
                 <div className='messages'>
-                    <h1 className='noAnswer'>Enter answer</h1>
-                    <h1 className='correctAnswer'>Correct Answer: {correctAnswer}</h1>
+                    <h3 className='noAnswer'>Enter answer</h3>
+                    <h3 className='correctAnswer'>Correct Answer: {correctAnswer}</h3>
                 </div>
 
                 <form onSubmit={onSubmitForm} className='user-input-container'>
                     <input type="text" name="" id="" onChange={AnswerHnd} value={userAnswer} />
-                    <button id='checkBtn' type="submit" onClick={CheckClickHnd}>CHECK</button>
+                    <button className="checkBtn" id='checkBtn' type="submit" onClick={CheckClickHnd}>CHECK</button>
                 </form>
             </div>
 
             <div className="game-stats">
-                <h1>QUIZ RESULTS</h1>
+                <h2>QUIZ RESULTS</h2>
                 <p className='totalResult'>Total Questions: {totalNumOfQuestions}</p>
                 <p className='correctResult'>Correct: {correct}</p>
                 <p className='incorrectResult'>Incorrect: {incorrect}</p>

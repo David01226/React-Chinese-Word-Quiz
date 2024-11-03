@@ -30,7 +30,6 @@ function App(props) {
                 buttons[i].style.backgroundColor = "#FFFFFF";
                 buttons[i].style.borderColor = "#e5e5e5";
                 buttons[i].style.boxShadow = "0px 3px 0px #e5e5e5";
-
             }
     
             let selectedButton = e.target                        // changes the selected button to red
@@ -41,6 +40,9 @@ function App(props) {
             let startButton = document.getElementsByClassName('startBtn');  // changes start button properties to active appearance
             for (let i = 0, max = startButton.length; i < max; i++) {      
                 startButton[i].style.backgroundColor = "#EE0F0F";
+                startButton[i].style.borderColor = "#960808";
+                startButton[i].style.boxShadow = "0px 3px 0px #960808";
+                startButton[i].style.color = "#FFFFFF";
                 startButton[i].style.opacity = "1";
                 startButton[i].style.cursor = "pointer";
             }
@@ -77,7 +79,7 @@ function App(props) {
                     progress[i].style.display = "block";
                 }
     
-                let questionNum = document.getElementsByClassName('header-right');  // Make current question index visible
+                let questionNum = document.querySelectorAll('.header-right h2');  // Make current question index visible
                 for (let i = 0, max = questionNum.length; i < max; i++) {      
                     questionNum[i].style.display = "block";
                 }
@@ -380,6 +382,8 @@ function App(props) {
                 let buttons = document.querySelectorAll('.startOptions')
                 for (let i = 0, max = buttons.length; i < max; i++) {      // reset all buttons to original color before changing the selected to red
                     buttons[i].style.backgroundColor = "#FFFFFF";
+                    buttons[i].style.borderColor = "#e5e5e5";
+                    buttons[i].style.boxShadow = "0px 3px 0px #e5e5e5";
                 }
 
                 let attempts = document.getElementsByClassName('footer-center');
@@ -392,7 +396,7 @@ function App(props) {
                     progress[i].style.display = "none";
                 }
 
-                let questionNum = document.getElementsByClassName('header-right');
+                let questionNum = document.querySelectorAll('.header-right h2');
                 for (let i = 0, max = questionNum.length; i < max; i++) {           // hide question count
                     questionNum[i].style.display = "none";
                 }
@@ -403,7 +407,9 @@ function App(props) {
                     startButton[i].style.display = "block";
                     startButton[i].style.opacity = "0.4";
                     startButton[i].style.cursor = "default";
-                    startButton[i].style.boxShadow = "unset";
+                    startButton[i].style.boxShadow = "0 3px 0 #e5e5e5";
+                    startButton[i].style.borderColor = "#e5e5e5";
+                    startButton[i].style.color = "#000000";
                 }
 
                 let skipButton = document.getElementById('skip')      // reset skip button back to Active class but make it invisible
@@ -418,7 +424,7 @@ function App(props) {
                 for (let i = 0, max = quitButton.length; i < max; i++) {      
                     quitButton[i].style.opacity = "0.4";
                     quitButton[i].style.cursor = "default";
-                    quitButton[i].style.boxShadow = "unset";
+                    quitButton[i].style.boxShadow = "0px 3px 0px #e5e5e5";
                 } 
 
                 let starMenu = document.getElementsByClassName('start-menu-container');   // reveals the start menu again after restarting

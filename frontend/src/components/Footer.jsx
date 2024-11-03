@@ -14,7 +14,7 @@ const Footer = (props) => {
 
             <div className="footer-center">
                 <h3>ATTEMPTS: </h3>
-                <div>
+                <div className="footer-attempt">
                 {[...Array(attempts)].map((_, index) => (
                     <img key={index} className="attemptImg" src="/x_symbol.png" alt="" />
                 ))} 
