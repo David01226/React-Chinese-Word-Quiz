@@ -140,6 +140,8 @@
 .startOptions {
     background-color: #FFFFFF;
     cursor: pointer;
+    text-decoration: none;
+    color: #000000;
 }
 
 .start-options-left {
